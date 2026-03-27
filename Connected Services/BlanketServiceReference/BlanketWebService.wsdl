@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addBlanket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Material" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Capasity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Price" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addBlanketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addBlanketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlanket">
+        <s:complexType />
+      </s:element>
+      <s:element name="getBlanketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBlanketResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchBlanketByname">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketModel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchBlanketBynameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchBlanketBynameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchBlanketById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchBlanketByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchBlanketByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAllBlanketID">
+        <s:complexType />
+      </s:element>
+      <s:element name="getAllBlanketIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAllBlanketIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlanketModel">
+        <s:complexType />
+      </s:element>
+      <s:element name="getBlanketModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBlanketModelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlanketIDByModel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketModel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBlanketIDByModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBlanketIDByModelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="addBlanketSoapIn">
+    <wsdl:part name="parameters" element="tns:addBlanket" />
+  </wsdl:message>
+  <wsdl:message name="addBlanketSoapOut">
+    <wsdl:part name="parameters" element="tns:addBlanketResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketSoapIn">
+    <wsdl:part name="parameters" element="tns:getBlanket" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketSoapOut">
+    <wsdl:part name="parameters" element="tns:getBlanketResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchBlanketBynameSoapIn">
+    <wsdl:part name="parameters" element="tns:searchBlanketByname" />
+  </wsdl:message>
+  <wsdl:message name="searchBlanketBynameSoapOut">
+    <wsdl:part name="parameters" element="tns:searchBlanketBynameResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchBlanketByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:searchBlanketById" />
+  </wsdl:message>
+  <wsdl:message name="searchBlanketByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:searchBlanketByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllBlanketIDSoapIn">
+    <wsdl:part name="parameters" element="tns:getAllBlanketID" />
+  </wsdl:message>
+  <wsdl:message name="getAllBlanketIDSoapOut">
+    <wsdl:part name="parameters" element="tns:getAllBlanketIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketModelSoapIn">
+    <wsdl:part name="parameters" element="tns:getBlanketModel" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketModelSoapOut">
+    <wsdl:part name="parameters" element="tns:getBlanketModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketIDByModelSoapIn">
+    <wsdl:part name="parameters" element="tns:getBlanketIDByModel" />
+  </wsdl:message>
+  <wsdl:message name="getBlanketIDByModelSoapOut">
+    <wsdl:part name="parameters" element="tns:getBlanketIDByModelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BlanketWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addBlanket">
+      <wsdl:input message="tns:addBlanketSoapIn" />
+      <wsdl:output message="tns:addBlanketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlanket">
+      <wsdl:input message="tns:getBlanketSoapIn" />
+      <wsdl:output message="tns:getBlanketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketByname">
+      <wsdl:input message="tns:searchBlanketBynameSoapIn" />
+      <wsdl:output message="tns:searchBlanketBynameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketById">
+      <wsdl:input message="tns:searchBlanketByIdSoapIn" />
+      <wsdl:output message="tns:searchBlanketByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllBlanketID">
+      <wsdl:input message="tns:getAllBlanketIDSoapIn" />
+      <wsdl:output message="tns:getAllBlanketIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketModel">
+      <wsdl:input message="tns:getBlanketModelSoapIn" />
+      <wsdl:output message="tns:getBlanketModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketIDByModel">
+      <wsdl:input message="tns:getBlanketIDByModelSoapIn" />
+      <wsdl:output message="tns:getBlanketIDByModelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BlanketWebServiceSoap" type="tns:BlanketWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBlanket">
+      <soap:operation soapAction="http://tempuri.org/addBlanket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanket">
+      <soap:operation soapAction="http://tempuri.org/getBlanket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketByname">
+      <soap:operation soapAction="http://tempuri.org/searchBlanketByname" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketById">
+      <soap:operation soapAction="http://tempuri.org/searchBlanketById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBlanketID">
+      <soap:operation soapAction="http://tempuri.org/getAllBlanketID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketModel">
+      <soap:operation soapAction="http://tempuri.org/getBlanketModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketIDByModel">
+      <soap:operation soapAction="http://tempuri.org/getBlanketIDByModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BlanketWebServiceSoap12" type="tns:BlanketWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addBlanket">
+      <soap12:operation soapAction="http://tempuri.org/addBlanket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanket">
+      <soap12:operation soapAction="http://tempuri.org/getBlanket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketByname">
+      <soap12:operation soapAction="http://tempuri.org/searchBlanketByname" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchBlanketById">
+      <soap12:operation soapAction="http://tempuri.org/searchBlanketById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllBlanketID">
+      <soap12:operation soapAction="http://tempuri.org/getAllBlanketID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketModel">
+      <soap12:operation soapAction="http://tempuri.org/getBlanketModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBlanketIDByModel">
+      <soap12:operation soapAction="http://tempuri.org/getBlanketIDByModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BlanketWebService">
+    <wsdl:port name="BlanketWebServiceSoap" binding="tns:BlanketWebServiceSoap">
+      <soap:address location="https://localhost:44306/BlanketWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BlanketWebServiceSoap12" binding="tns:BlanketWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/BlanketWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

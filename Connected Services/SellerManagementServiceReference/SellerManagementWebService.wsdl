@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssignedSellers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="distributerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssignedSellersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssignedSellersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateSellerResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsSellerAssigned">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsSellerAssignedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsSellerAssignedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignSeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="distributerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignSellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssignSellerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveSellerAssignment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerManagementId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveSellerAssignmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveSellerAssignmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellersByDistributer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="distributerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellersByDistributerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSellersByDistributerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedSellersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssignedSellers" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedSellersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssignedSellersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateSeller" />
+  </wsdl:message>
+  <wsdl:message name="ValidateSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsSellerAssignedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsSellerAssigned" />
+  </wsdl:message>
+  <wsdl:message name="IsSellerAssignedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsSellerAssignedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AssignSellerSoapIn">
+    <wsdl:part name="parameters" element="tns:AssignSeller" />
+  </wsdl:message>
+  <wsdl:message name="AssignSellerSoapOut">
+    <wsdl:part name="parameters" element="tns:AssignSellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSellerAssignmentSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveSellerAssignment" />
+  </wsdl:message>
+  <wsdl:message name="RemoveSellerAssignmentSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveSellerAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSellersByDistributerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSellersByDistributer" />
+  </wsdl:message>
+  <wsdl:message name="GetSellersByDistributerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSellersByDistributerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SellerManagementWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedSellers">
+      <wsdl:input message="tns:GetAssignedSellersSoapIn" />
+      <wsdl:output message="tns:GetAssignedSellersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSeller">
+      <wsdl:input message="tns:ValidateSellerSoapIn" />
+      <wsdl:output message="tns:ValidateSellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsSellerAssigned">
+      <wsdl:input message="tns:IsSellerAssignedSoapIn" />
+      <wsdl:output message="tns:IsSellerAssignedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignSeller">
+      <wsdl:input message="tns:AssignSellerSoapIn" />
+      <wsdl:output message="tns:AssignSellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSellerAssignment">
+      <wsdl:input message="tns:RemoveSellerAssignmentSoapIn" />
+      <wsdl:output message="tns:RemoveSellerAssignmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellersByDistributer">
+      <wsdl:input message="tns:GetSellersByDistributerSoapIn" />
+      <wsdl:output message="tns:GetSellersByDistributerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SellerManagementWebServiceSoap" type="tns:SellerManagementWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedSellers">
+      <soap:operation soapAction="http://tempuri.org/GetAssignedSellers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSeller">
+      <soap:operation soapAction="http://tempuri.org/ValidateSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsSellerAssigned">
+      <soap:operation soapAction="http://tempuri.org/IsSellerAssigned" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignSeller">
+      <soap:operation soapAction="http://tempuri.org/AssignSeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSellerAssignment">
+      <soap:operation soapAction="http://tempuri.org/RemoveSellerAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellersByDistributer">
+      <soap:operation soapAction="http://tempuri.org/GetSellersByDistributer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SellerManagementWebServiceSoap12" type="tns:SellerManagementWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedSellers">
+      <soap12:operation soapAction="http://tempuri.org/GetAssignedSellers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateSeller">
+      <soap12:operation soapAction="http://tempuri.org/ValidateSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsSellerAssigned">
+      <soap12:operation soapAction="http://tempuri.org/IsSellerAssigned" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignSeller">
+      <soap12:operation soapAction="http://tempuri.org/AssignSeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSellerAssignment">
+      <soap12:operation soapAction="http://tempuri.org/RemoveSellerAssignment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellersByDistributer">
+      <soap12:operation soapAction="http://tempuri.org/GetSellersByDistributer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SellerManagementWebService">
+    <wsdl:port name="SellerManagementWebServiceSoap" binding="tns:SellerManagementWebServiceSoap">
+      <soap:address location="https://localhost:44306/SellerManagementWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SellerManagementWebServiceSoap12" binding="tns:SellerManagementWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/SellerManagementWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

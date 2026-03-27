@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoMaterialID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoMaterialIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoMaterialIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoBlanketID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoBlanketIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoBlanketIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoOrderID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoOrderIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoOrderIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoSellerInventoryID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoSellerInventoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoSellerInventoryIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoDistributerInventoryID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoDistributerInventoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoDistributerInventoryIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="autoManufacturerInventoryID">
+        <s:complexType />
+      </s:element>
+      <s:element name="autoManufacturerInventoryIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="autoManufacturerInventoryIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoMaterialIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoMaterialID" />
+  </wsdl:message>
+  <wsdl:message name="autoMaterialIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoMaterialIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoBlanketIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoBlanketID" />
+  </wsdl:message>
+  <wsdl:message name="autoBlanketIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoBlanketIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoOrderIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoOrderID" />
+  </wsdl:message>
+  <wsdl:message name="autoOrderIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoOrderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoSellerInventoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoSellerInventoryID" />
+  </wsdl:message>
+  <wsdl:message name="autoSellerInventoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoSellerInventoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoDistributerInventoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoDistributerInventoryID" />
+  </wsdl:message>
+  <wsdl:message name="autoDistributerInventoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoDistributerInventoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="autoManufacturerInventoryIDSoapIn">
+    <wsdl:part name="parameters" element="tns:autoManufacturerInventoryID" />
+  </wsdl:message>
+  <wsdl:message name="autoManufacturerInventoryIDSoapOut">
+    <wsdl:part name="parameters" element="tns:autoManufacturerInventoryIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetNewIDWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoMaterialID">
+      <wsdl:input message="tns:autoMaterialIDSoapIn" />
+      <wsdl:output message="tns:autoMaterialIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoBlanketID">
+      <wsdl:input message="tns:autoBlanketIDSoapIn" />
+      <wsdl:output message="tns:autoBlanketIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoOrderID">
+      <wsdl:input message="tns:autoOrderIDSoapIn" />
+      <wsdl:output message="tns:autoOrderIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoSellerInventoryID">
+      <wsdl:input message="tns:autoSellerInventoryIDSoapIn" />
+      <wsdl:output message="tns:autoSellerInventoryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoDistributerInventoryID">
+      <wsdl:input message="tns:autoDistributerInventoryIDSoapIn" />
+      <wsdl:output message="tns:autoDistributerInventoryIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="autoManufacturerInventoryID">
+      <wsdl:input message="tns:autoManufacturerInventoryIDSoapIn" />
+      <wsdl:output message="tns:autoManufacturerInventoryIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetNewIDWebServiceSoap" type="tns:GetNewIDWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoMaterialID">
+      <soap:operation soapAction="http://tempuri.org/autoMaterialID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoBlanketID">
+      <soap:operation soapAction="http://tempuri.org/autoBlanketID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoOrderID">
+      <soap:operation soapAction="http://tempuri.org/autoOrderID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoSellerInventoryID">
+      <soap:operation soapAction="http://tempuri.org/autoSellerInventoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoDistributerInventoryID">
+      <soap:operation soapAction="http://tempuri.org/autoDistributerInventoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoManufacturerInventoryID">
+      <soap:operation soapAction="http://tempuri.org/autoManufacturerInventoryID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetNewIDWebServiceSoap12" type="tns:GetNewIDWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoMaterialID">
+      <soap12:operation soapAction="http://tempuri.org/autoMaterialID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoBlanketID">
+      <soap12:operation soapAction="http://tempuri.org/autoBlanketID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoOrderID">
+      <soap12:operation soapAction="http://tempuri.org/autoOrderID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoSellerInventoryID">
+      <soap12:operation soapAction="http://tempuri.org/autoSellerInventoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoDistributerInventoryID">
+      <soap12:operation soapAction="http://tempuri.org/autoDistributerInventoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="autoManufacturerInventoryID">
+      <soap12:operation soapAction="http://tempuri.org/autoManufacturerInventoryID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetNewIDWebService">
+    <wsdl:port name="GetNewIDWebServiceSoap" binding="tns:GetNewIDWebServiceSoap">
+      <soap:address location="https://localhost:44306/GetNewIDWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetNewIDWebServiceSoap12" binding="tns:GetNewIDWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/GetNewIDWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

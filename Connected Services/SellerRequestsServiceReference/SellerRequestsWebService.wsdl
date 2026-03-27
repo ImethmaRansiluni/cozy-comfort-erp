@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSellerRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="qty" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSellerRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddSellerRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSellerRequestsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequestsByStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequestsByStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSellerRequestsByStatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingRequestsBySellerList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerIdList" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingRequestsBySellerListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingRequestsBySellerListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingRequestsBySellerListAndBlanket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerIdList" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingRequestsBySellerListAndBlanketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingRequestsBySellerListAndBlanketResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequestById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSellerRequestByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSellerRequestByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerRequestStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="note" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerRequestStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSellerRequestStatusResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerInventoryQty">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtyChange" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSellerInventoryQtyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSellerInventoryQtyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmedRequestsByDistributer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="distributerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmedRequestsByDistributerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfirmedRequestsByDistributerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRejectedRequestsByDistributer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="distributerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRejectedRequestsByDistributerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRejectedRequestsByDistributerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSellerRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSellerRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddSellerRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSellerRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSellerRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSellerRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestsByStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSellerRequestsByStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestsByStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSellerRequestsByStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingRequestsBySellerListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingRequestsBySellerList" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingRequestsBySellerListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingRequestsBySellerListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingRequestsBySellerListAndBlanketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingRequestsBySellerListAndBlanket" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingRequestsBySellerListAndBlanketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingRequestsBySellerListAndBlanketResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSellerRequestById" />
+  </wsdl:message>
+  <wsdl:message name="GetSellerRequestByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSellerRequestByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerRequestStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSellerRequestStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerRequestStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSellerRequestStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerInventoryQtySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSellerInventoryQty" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSellerInventoryQtySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSellerInventoryQtyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmedRequestsByDistributerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfirmedRequestsByDistributer" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmedRequestsByDistributerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfirmedRequestsByDistributerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRejectedRequestsByDistributerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRejectedRequestsByDistributer" />
+  </wsdl:message>
+  <wsdl:message name="GetRejectedRequestsByDistributerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRejectedRequestsByDistributerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SellerRequestsWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSellerRequest">
+      <wsdl:input message="tns:AddSellerRequestSoapIn" />
+      <wsdl:output message="tns:AddSellerRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequests">
+      <wsdl:input message="tns:GetSellerRequestsSoapIn" />
+      <wsdl:output message="tns:GetSellerRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestsByStatus">
+      <wsdl:input message="tns:GetSellerRequestsByStatusSoapIn" />
+      <wsdl:output message="tns:GetSellerRequestsByStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerList">
+      <wsdl:input message="tns:GetPendingRequestsBySellerListSoapIn" />
+      <wsdl:output message="tns:GetPendingRequestsBySellerListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerListAndBlanket">
+      <wsdl:input message="tns:GetPendingRequestsBySellerListAndBlanketSoapIn" />
+      <wsdl:output message="tns:GetPendingRequestsBySellerListAndBlanketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestById">
+      <wsdl:input message="tns:GetSellerRequestByIdSoapIn" />
+      <wsdl:output message="tns:GetSellerRequestByIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerRequestStatus">
+      <wsdl:input message="tns:UpdateSellerRequestStatusSoapIn" />
+      <wsdl:output message="tns:UpdateSellerRequestStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerInventoryQty">
+      <wsdl:input message="tns:UpdateSellerInventoryQtySoapIn" />
+      <wsdl:output message="tns:UpdateSellerInventoryQtySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedRequestsByDistributer">
+      <wsdl:input message="tns:GetConfirmedRequestsByDistributerSoapIn" />
+      <wsdl:output message="tns:GetConfirmedRequestsByDistributerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedRequestsByDistributer">
+      <wsdl:input message="tns:GetRejectedRequestsByDistributerSoapIn" />
+      <wsdl:output message="tns:GetRejectedRequestsByDistributerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SellerRequestsWebServiceSoap" type="tns:SellerRequestsWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSellerRequest">
+      <soap:operation soapAction="http://tempuri.org/AddSellerRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequests">
+      <soap:operation soapAction="http://tempuri.org/GetSellerRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestsByStatus">
+      <soap:operation soapAction="http://tempuri.org/GetSellerRequestsByStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerList">
+      <soap:operation soapAction="http://tempuri.org/GetPendingRequestsBySellerList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerListAndBlanket">
+      <soap:operation soapAction="http://tempuri.org/GetPendingRequestsBySellerListAndBlanket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestById">
+      <soap:operation soapAction="http://tempuri.org/GetSellerRequestById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerRequestStatus">
+      <soap:operation soapAction="http://tempuri.org/UpdateSellerRequestStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerInventoryQty">
+      <soap:operation soapAction="http://tempuri.org/UpdateSellerInventoryQty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedRequestsByDistributer">
+      <soap:operation soapAction="http://tempuri.org/GetConfirmedRequestsByDistributer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedRequestsByDistributer">
+      <soap:operation soapAction="http://tempuri.org/GetRejectedRequestsByDistributer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SellerRequestsWebServiceSoap12" type="tns:SellerRequestsWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSellerRequest">
+      <soap12:operation soapAction="http://tempuri.org/AddSellerRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequests">
+      <soap12:operation soapAction="http://tempuri.org/GetSellerRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestsByStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetSellerRequestsByStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerList">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingRequestsBySellerList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingRequestsBySellerListAndBlanket">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingRequestsBySellerListAndBlanket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSellerRequestById">
+      <soap12:operation soapAction="http://tempuri.org/GetSellerRequestById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerRequestStatus">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSellerRequestStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSellerInventoryQty">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSellerInventoryQty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedRequestsByDistributer">
+      <soap12:operation soapAction="http://tempuri.org/GetConfirmedRequestsByDistributer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedRequestsByDistributer">
+      <soap12:operation soapAction="http://tempuri.org/GetRejectedRequestsByDistributer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SellerRequestsWebService">
+    <wsdl:port name="SellerRequestsWebServiceSoap" binding="tns:SellerRequestsWebServiceSoap">
+      <soap:address location="https://localhost:44306/SellerRequestsWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SellerRequestsWebServiceSoap12" binding="tns:SellerRequestsWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/SellerRequestsWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

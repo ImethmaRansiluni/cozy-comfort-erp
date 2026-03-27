@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddManufacturerInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inventoryId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currentQty" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddManufacturerInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddManufacturerInventoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufacturerInventory">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetManufacturerInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManufacturerInventoryResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateManufacturerInventoryQuantity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inventoryId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="qtyChange" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAddition" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateManufacturerInventoryQuantityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateManufacturerInventoryQuantityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufacturerInventoryId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManufacturerInventoryIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManufacturerInventoryIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddManufacturerInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:AddManufacturerInventory" />
+  </wsdl:message>
+  <wsdl:message name="AddManufacturerInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:AddManufacturerInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManufacturerInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:GetManufacturerInventory" />
+  </wsdl:message>
+  <wsdl:message name="GetManufacturerInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:GetManufacturerInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateManufacturerInventoryQuantitySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateManufacturerInventoryQuantity" />
+  </wsdl:message>
+  <wsdl:message name="UpdateManufacturerInventoryQuantitySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateManufacturerInventoryQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetManufacturerInventoryIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManufacturerInventoryId" />
+  </wsdl:message>
+  <wsdl:message name="GetManufacturerInventoryIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManufacturerInventoryIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ManufacturerInventoryWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddManufacturerInventory">
+      <wsdl:input message="tns:AddManufacturerInventorySoapIn" />
+      <wsdl:output message="tns:AddManufacturerInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventory">
+      <wsdl:input message="tns:GetManufacturerInventorySoapIn" />
+      <wsdl:output message="tns:GetManufacturerInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManufacturerInventoryQuantity">
+      <wsdl:input message="tns:UpdateManufacturerInventoryQuantitySoapIn" />
+      <wsdl:output message="tns:UpdateManufacturerInventoryQuantitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventoryId">
+      <wsdl:input message="tns:GetManufacturerInventoryIdSoapIn" />
+      <wsdl:output message="tns:GetManufacturerInventoryIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManufacturerInventoryWebServiceSoap" type="tns:ManufacturerInventoryWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManufacturerInventory">
+      <soap:operation soapAction="http://tempuri.org/AddManufacturerInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventory">
+      <soap:operation soapAction="http://tempuri.org/GetManufacturerInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManufacturerInventoryQuantity">
+      <soap:operation soapAction="http://tempuri.org/UpdateManufacturerInventoryQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventoryId">
+      <soap:operation soapAction="http://tempuri.org/GetManufacturerInventoryId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ManufacturerInventoryWebServiceSoap12" type="tns:ManufacturerInventoryWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddManufacturerInventory">
+      <soap12:operation soapAction="http://tempuri.org/AddManufacturerInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventory">
+      <soap12:operation soapAction="http://tempuri.org/GetManufacturerInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateManufacturerInventoryQuantity">
+      <soap12:operation soapAction="http://tempuri.org/UpdateManufacturerInventoryQuantity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManufacturerInventoryId">
+      <soap12:operation soapAction="http://tempuri.org/GetManufacturerInventoryId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManufacturerInventoryWebService">
+    <wsdl:port name="ManufacturerInventoryWebServiceSoap" binding="tns:ManufacturerInventoryWebServiceSoap">
+      <soap:address location="https://localhost:44306/ManufacturerInventoryWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ManufacturerInventoryWebServiceSoap12" binding="tns:ManufacturerInventoryWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/ManufacturerInventoryWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

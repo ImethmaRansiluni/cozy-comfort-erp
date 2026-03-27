@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckDatabaseConnection">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckDatabaseConnectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckDatabaseConnectionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SellerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BlanketID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qty" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="addOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrdersBySeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrdersBySellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrdersBySellerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllOrders">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllOrdersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmOrderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanConfirmOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CanConfirmOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CanConfirmOrderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingOrdersBySellerAndModel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modelSearch" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingOrdersBySellerAndModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingOrdersBySellerAndModelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingOrdersBySellerAndBlanket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="blanketId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingOrdersBySellerAndBlanketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingOrdersBySellerAndBlanketResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchPendingOrdersByModel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modelSearch" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchPendingOrdersByModelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchPendingOrdersByModelResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePendingOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePendingOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApprovePendingOrderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectPendingOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="orderId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RejectPendingOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RejectPendingOrderResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmedOrdersBySeller">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sellerId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfirmedOrdersBySellerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfirmedOrdersBySellerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckDatabaseConnectionSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnection" />
+  </wsdl:message>
+  <wsdl:message name="CheckDatabaseConnectionSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="addOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:addOrder" />
+  </wsdl:message>
+  <wsdl:message name="addOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:addOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrdersBySellerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrdersBySeller" />
+  </wsdl:message>
+  <wsdl:message name="GetOrdersBySellerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrdersBySellerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmOrder" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="CanConfirmOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:CanConfirmOrder" />
+  </wsdl:message>
+  <wsdl:message name="CanConfirmOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:CanConfirmOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingOrdersBySellerAndModelSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingOrdersBySellerAndModel" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingOrdersBySellerAndModelSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingOrdersBySellerAndModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingOrdersBySellerAndBlanketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingOrdersBySellerAndBlanket" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingOrdersBySellerAndBlanketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingOrdersBySellerAndBlanketResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchPendingOrdersByModelSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchPendingOrdersByModel" />
+  </wsdl:message>
+  <wsdl:message name="SearchPendingOrdersByModelSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchPendingOrdersByModelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePendingOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ApprovePendingOrder" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePendingOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ApprovePendingOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RejectPendingOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:RejectPendingOrder" />
+  </wsdl:message>
+  <wsdl:message name="RejectPendingOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:RejectPendingOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmedOrdersBySellerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfirmedOrdersBySeller" />
+  </wsdl:message>
+  <wsdl:message name="GetConfirmedOrdersBySellerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfirmedOrdersBySellerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OrderWebServiceSoap">
+    <wsdl:operation name="CheckDatabaseConnection">
+      <wsdl:input message="tns:CheckDatabaseConnectionSoapIn" />
+      <wsdl:output message="tns:CheckDatabaseConnectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="addOrder">
+      <wsdl:input message="tns:addOrderSoapIn" />
+      <wsdl:output message="tns:addOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersBySeller">
+      <wsdl:input message="tns:GetOrdersBySellerSoapIn" />
+      <wsdl:output message="tns:GetOrdersBySellerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input message="tns:GetAllOrdersSoapIn" />
+      <wsdl:output message="tns:GetAllOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmOrder">
+      <wsdl:input message="tns:ConfirmOrderSoapIn" />
+      <wsdl:output message="tns:ConfirmOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CanConfirmOrder">
+      <wsdl:input message="tns:CanConfirmOrderSoapIn" />
+      <wsdl:output message="tns:CanConfirmOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <wsdl:input message="tns:GetOrderDetailsSoapIn" />
+      <wsdl:output message="tns:GetOrderDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndModel">
+      <wsdl:input message="tns:GetPendingOrdersBySellerAndModelSoapIn" />
+      <wsdl:output message="tns:GetPendingOrdersBySellerAndModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndBlanket">
+      <wsdl:input message="tns:GetPendingOrdersBySellerAndBlanketSoapIn" />
+      <wsdl:output message="tns:GetPendingOrdersBySellerAndBlanketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchPendingOrdersByModel">
+      <wsdl:input message="tns:SearchPendingOrdersByModelSoapIn" />
+      <wsdl:output message="tns:SearchPendingOrdersByModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePendingOrder">
+      <wsdl:input message="tns:ApprovePendingOrderSoapIn" />
+      <wsdl:output message="tns:ApprovePendingOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectPendingOrder">
+      <wsdl:input message="tns:RejectPendingOrderSoapIn" />
+      <wsdl:output message="tns:RejectPendingOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedOrdersBySeller">
+      <wsdl:input message="tns:GetConfirmedOrdersBySellerSoapIn" />
+      <wsdl:output message="tns:GetConfirmedOrdersBySellerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderWebServiceSoap" type="tns:OrderWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOrder">
+      <soap:operation soapAction="http://tempuri.org/addOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersBySeller">
+      <soap:operation soapAction="http://tempuri.org/GetOrdersBySeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmOrder">
+      <soap:operation soapAction="http://tempuri.org/ConfirmOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanConfirmOrder">
+      <soap:operation soapAction="http://tempuri.org/CanConfirmOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap:operation soapAction="http://tempuri.org/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndModel">
+      <soap:operation soapAction="http://tempuri.org/GetPendingOrdersBySellerAndModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndBlanket">
+      <soap:operation soapAction="http://tempuri.org/GetPendingOrdersBySellerAndBlanket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPendingOrdersByModel">
+      <soap:operation soapAction="http://tempuri.org/SearchPendingOrdersByModel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePendingOrder">
+      <soap:operation soapAction="http://tempuri.org/ApprovePendingOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectPendingOrder">
+      <soap:operation soapAction="http://tempuri.org/RejectPendingOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedOrdersBySeller">
+      <soap:operation soapAction="http://tempuri.org/GetConfirmedOrdersBySeller" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderWebServiceSoap12" type="tns:OrderWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckDatabaseConnection">
+      <soap12:operation soapAction="http://tempuri.org/CheckDatabaseConnection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOrder">
+      <soap12:operation soapAction="http://tempuri.org/addOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersBySeller">
+      <soap12:operation soapAction="http://tempuri.org/GetOrdersBySeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmOrder">
+      <soap12:operation soapAction="http://tempuri.org/ConfirmOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CanConfirmOrder">
+      <soap12:operation soapAction="http://tempuri.org/CanConfirmOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndModel">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingOrdersBySellerAndModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingOrdersBySellerAndBlanket">
+      <soap12:operation soapAction="http://tempuri.org/GetPendingOrdersBySellerAndBlanket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchPendingOrdersByModel">
+      <soap12:operation soapAction="http://tempuri.org/SearchPendingOrdersByModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePendingOrder">
+      <soap12:operation soapAction="http://tempuri.org/ApprovePendingOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectPendingOrder">
+      <soap12:operation soapAction="http://tempuri.org/RejectPendingOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfirmedOrdersBySeller">
+      <soap12:operation soapAction="http://tempuri.org/GetConfirmedOrdersBySeller" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderWebService">
+    <wsdl:port name="OrderWebServiceSoap" binding="tns:OrderWebServiceSoap">
+      <soap:address location="https://localhost:44306/OrderWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderWebServiceSoap12" binding="tns:OrderWebServiceSoap12">
+      <soap12:address location="https://localhost:44306/OrderWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
